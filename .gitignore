@@ -1,0 +1,35 @@
+# Python virtual environment
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Django
+*.log
+db.sqlite3
+
+# Environment variables
+.env
+.env.*
+
+# Django uploaded/generated files
+media/
+
+# React
+node_modules/
+dist/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/test_mask.jpg
+test_mask.jpg 
