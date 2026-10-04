@@ -1,0 +1,1437 @@
+
+/* =========================================================
+   SMARTATTEND - MASK VERIFICATION
+   BLACK / WHITE / GREY AI SECURITY THEME
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.mask-page {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 255, 255, 0.055),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(150, 150, 150, 0.045),
+            transparent 30%
+        ),
+        #050505;
+    color: #ffffff;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+.mask-glow {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(90px);
+    opacity: 0.18;
+    z-index: 0;
+}
+
+.mask-glow-one {
+    width: 420px;
+    height: 420px;
+    top: 5%;
+    left: -180px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.mask-glow-two {
+    width: 360px;
+    height: 360px;
+    right: -150px;
+    bottom: 5%;
+    background: rgba(180, 180, 180, 0.1);
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.mask-navbar {
+    height: 76px;
+    width: 100%;
+    padding: 0 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 10;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(5, 5, 5, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.mask-brand {
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0;
+    text-align: left;
+}
+
+.mask-brand-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #ffffff;
+    font-size: 20px;
+
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.06),
+        inset 0 0 15px rgba(255, 255, 255, 0.04);
+}
+
+.mask-brand > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mask-brand span {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.mask-brand small {
+    color: #777777;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.mask-security-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #a7a7a7;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.mask-security-status span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.65);
+
+    animation: maskPulse 1.8s ease-in-out infinite;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.mask-main {
+    min-height: calc(100vh - 132px);
+    width: 100%;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 55px 40px 70px;
+}
+
+/* =========================================================
+   COUNTDOWN SCREEN
+   ========================================================= */
+
+.mask-countdown-screen {
+    min-height: calc(100vh - 240px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.mask-top-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #bdbdbd;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+
+    box-shadow:
+        inset 0 0 15px rgba(255, 255, 255, 0.025),
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.mask-top-badge > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.mask-top-badge .active {
+    animation: maskPulse 1.2s ease-in-out infinite;
+}
+
+/* =========================================================
+   SHIELD
+   ========================================================= */
+
+.mask-shield {
+    margin: 30px 0 25px;
+
+    position: relative;
+
+    width: 125px;
+    height: 125px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mask-shield-ring {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    box-shadow:
+        0 0 50px rgba(255, 255, 255, 0.06),
+        inset 0 0 30px rgba(255, 255, 255, 0.04);
+
+    animation: shieldFloat 4s ease-in-out infinite;
+}
+
+.mask-shield-ring::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+
+    animation: rotateShield 15s linear infinite;
+}
+
+.mask-shield-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    color: #ffffff;
+    font-size: 27px;
+
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.08),
+        inset 0 0 18px rgba(255, 255, 255, 0.04);
+}
+
+/* =========================================================
+   COUNTDOWN HEADING
+   ========================================================= */
+
+.mask-countdown-screen h1 {
+    margin: 0;
+
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.08;
+
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.mask-countdown-screen h1 span,
+.mask-heading h1 span {
+    color: #8f8f8f;
+}
+
+.mask-greeting {
+    max-width: 600px;
+
+    margin: 17px auto 30px;
+
+    color: #858585;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   COUNTDOWN CARD
+   ========================================================= */
+
+.mask-countdown-card {
+    width: min(430px, 100%);
+
+    padding: 25px 28px 23px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35),
+        inset 0 1px rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.mask-countdown-card > span {
+    color: #707070;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.mask-countdown {
+    margin: 8px 0 15px;
+
+    font-size: 54px;
+    line-height: 1;
+
+    font-weight: 700;
+    color: #ffffff;
+
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.16);
+}
+
+.mask-countdown-progress {
+    width: 100%;
+    height: 3px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mask-countdown-progress div {
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.55);
+
+    transition: width 1s linear;
+}
+
+/* =========================================================
+   INSTRUCTION
+   ========================================================= */
+
+.mask-instruction {
+    margin-top: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    max-width: 480px;
+
+    color: #777777;
+
+    font-size: 12px;
+}
+
+.mask-instruction > div {
+    width: 26px;
+    height: 26px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.mask-live-message {
+    margin: 18px 0 0;
+
+    color: #a8a8a8;
+
+    font-size: 12px;
+}
+
+/* =========================================================
+   CAMERA SCREEN
+   ========================================================= */
+
+.mask-camera-screen {
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+.mask-heading {
+    margin-bottom: 32px;
+}
+
+.mask-heading h1 {
+    margin: 18px 0 8px;
+
+    font-size: clamp(32px, 4vw, 50px);
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+}
+
+.mask-heading p {
+    max-width: 620px;
+
+    margin: 0;
+
+    color: #7d7d7d;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   MAIN CAMERA LAYOUT
+   ========================================================= */
+
+.mask-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.7fr);
+    gap: 24px;
+
+    align-items: start;
+}
+
+/* =========================================================
+   CAMERA CARD
+   ========================================================= */
+
+.mask-camera-card {
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.42),
+        inset 0 1px rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.mask-camera-header {
+    min-height: 78px;
+
+    padding: 17px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mask-camera-header h2 {
+    margin: 0 0 5px;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.mask-camera-header span {
+    color: #707070;
+
+    font-size: 11px;
+}
+
+.mask-live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 11px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+
+    color: #c4c4c4;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.mask-live-indicator > span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+
+    animation: maskPulse 1.2s infinite;
+}
+
+/* =========================================================
+   VIDEO
+   ========================================================= */
+
+.mask-video-container {
+    width: 100%;
+
+    position: relative;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #000000;
+}
+
+.mask-video {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transform: scaleX(-1);
+
+    background: #000000;
+}
+
+/* subtle camera overlay */
+
+.mask-video-container::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.04),
+            transparent 20%,
+            transparent 80%,
+            rgba(0, 0, 0, 0.16)
+        );
+}
+
+/* =========================================================
+   FACE FRAME
+   ========================================================= */
+
+.mask-face-frame {
+    position: absolute;
+
+    width: min(42%, 330px);
+    aspect-ratio: 0.76;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+.mask-corner {
+    width: 34px;
+    height: 34px;
+
+    position: absolute;
+
+    border-color: rgba(255, 255, 255, 0.82);
+    border-style: solid;
+
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.25));
+}
+
+.mask-corner.top-left {
+    top: 0;
+    left: 0;
+
+    border-width: 2px 0 0 2px;
+}
+
+.mask-corner.top-right {
+    top: 0;
+    right: 0;
+
+    border-width: 2px 2px 0 0;
+}
+
+.mask-corner.bottom-left {
+    bottom: 0;
+    left: 0;
+
+    border-width: 0 0 2px 2px;
+}
+
+.mask-corner.bottom-right {
+    bottom: 0;
+    right: 0;
+
+    border-width: 0 2px 2px 0;
+}
+
+.mask-scan-line {
+    position: absolute;
+
+    left: 7%;
+    right: 7%;
+    top: 12%;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.7),
+        0 0 25px rgba(255, 255, 255, 0.3);
+
+    animation: maskScan 2.8s ease-in-out infinite;
+}
+
+.mask-frame-label {
+    position: absolute;
+
+    left: 50%;
+    bottom: -34px;
+
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 6px 10px;
+
+    border-radius: 6px;
+
+    background: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: #bdbdbd;
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.mask-frame-label span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+}
+
+/* =========================================================
+   DETECTION OVERLAY
+   ========================================================= */
+
+.mask-detection-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.38);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    text-align: center;
+}
+
+.mask-loader {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-top-color: #ffffff;
+
+    animation: maskSpin 0.9s linear infinite;
+}
+
+.mask-detection-overlay strong {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.mask-detection-overlay > span {
+    margin-top: 5px;
+
+    color: #8d8d8d;
+
+    font-size: 11px;
+}
+
+/* =========================================================
+   CAMERA FOOTER
+   ========================================================= */
+
+.mask-camera-footer {
+    min-height: 68px;
+
+    padding: 14px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mask-camera-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #8d8d8d;
+
+    font-size: 11px;
+}
+
+.mask-camera-status span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 9px rgba(255, 255, 255, 0.5);
+}
+
+.mask-test-button {
+    min-width: 125px;
+
+    padding: 10px 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.mask-test-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.28);
+
+    transform: translateY(-1px);
+}
+
+.mask-test-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* =========================================================
+   SIDE PANEL
+   ========================================================= */
+
+.mask-side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mask-info-card,
+.mask-message-card {
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.28),
+        inset 0 1px rgba(255, 255, 255, 0.025);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* =========================================================
+   STATUS CARD
+   ========================================================= */
+
+.mask-status-card {
+    padding: 23px;
+}
+
+.mask-status-icon {
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.mask-status-card > span {
+    color: #6f6f6f;
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
+
+.mask-status-card h3 {
+    margin: 7px 0 8px;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.mask-status-card p {
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.mask-engine-status {
+    margin-top: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    color: #929292;
+
+    font-size: 10px;
+}
+
+.mask-engine-status span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 9px rgba(255, 255, 255, 0.5);
+}
+
+/* =========================================================
+   TIPS CARD
+   ========================================================= */
+
+.mask-info-card:not(.mask-status-card) {
+    padding: 22px;
+}
+
+.mask-info-card:not(.mask-status-card) h3 {
+    margin: 0 0 18px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mask-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mask-tips > div {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 11px;
+
+    align-items: start;
+}
+
+.mask-tips > div > span {
+    color: #686868;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.mask-tips p {
+    margin: 0;
+
+    color: #858585;
+
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   MESSAGE CARD
+   ========================================================= */
+
+.mask-message-card {
+    padding: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mask-message-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    background: rgba(255, 255, 255, 0.05);
+
+    color: #ffffff;
+}
+
+.mask-message-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    min-width: 0;
+}
+
+.mask-message-card strong {
+    color: #d2d2d2;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.mask-message-card span {
+    color: #686868;
+
+    font-size: 9px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.mask-footer {
+    min-height: 56px;
+
+    padding: 0 42px;
+
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: #575757;
+
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+
+.mask-footer span:first-child {
+    color: #858585;
+    font-weight: 600;
+}
+
+.mask-footer span:nth-child(2)::before,
+.mask-footer span:nth-child(3)::before {
+    content: "•";
+    margin-right: 12px;
+
+    color: #3f3f3f;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes maskPulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shieldFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes rotateShield {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes maskScan {
+    0% {
+        top: 10%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 88%;
+        opacity: 0;
+    }
+}
+
+@keyframes maskSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 1100px
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .mask-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .mask-side-panel {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mask-message-card {
+        grid-column: 1 / -1;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 800px
+   ========================================================= */
+
+@media (max-width: 800px) {
+    .mask-navbar {
+        padding: 0 22px;
+    }
+
+    .mask-main {
+        padding: 40px 22px 60px;
+    }
+
+    .mask-heading {
+        text-align: center;
+    }
+
+    .mask-heading p {
+        margin: 0 auto;
+    }
+
+    .mask-side-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .mask-message-card {
+        grid-column: auto;
+    }
+
+    .mask-footer {
+        padding: 15px 22px;
+
+        flex-wrap: wrap;
+
+        gap: 7px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+    .mask-navbar {
+        height: 68px;
+        padding: 0 16px;
+    }
+
+    .mask-brand-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .mask-brand span {
+        font-size: 14px;
+    }
+
+    .mask-brand small {
+        font-size: 7px;
+    }
+
+    .mask-security-status {
+        font-size: 10px;
+    }
+
+    .mask-security-status span {
+        width: 6px;
+        height: 6px;
+    }
+
+    .mask-main {
+        min-height: calc(100vh - 124px);
+        padding: 32px 15px 45px;
+    }
+
+    .mask-countdown-screen {
+        min-height: calc(100vh - 210px);
+    }
+
+    .mask-countdown-screen h1 {
+        font-size: 34px;
+        letter-spacing: -1px;
+    }
+
+    .mask-greeting {
+        font-size: 13px;
+    }
+
+    .mask-shield {
+        width: 105px;
+        height: 105px;
+    }
+
+    .mask-shield-icon {
+        width: 54px;
+        height: 54px;
+    }
+
+    .mask-countdown-card {
+        padding: 22px 20px;
+    }
+
+    .mask-camera-header {
+        padding: 14px 15px;
+    }
+
+    .mask-camera-footer {
+        padding: 13px 15px;
+
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .mask-test-button {
+        width: 100%;
+    }
+
+    .mask-face-frame {
+        width: 48%;
+    }
+
+    .mask-frame-label {
+        font-size: 7px;
+    }
+
+    .mask-footer {
+        min-height: 60px;
+
+        font-size: 8px;
+
+        text-align: center;
+    }
+
+    .mask-footer span:nth-child(2)::before,
+    .mask-footer span:nth-child(3)::before {
+        margin-right: 7px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 420px
+   ========================================================= */
+
+@media (max-width: 420px) {
+    .mask-security-status {
+        display: none;
+    }
+
+    .mask-top-badge {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+
+    .mask-countdown-screen h1 {
+        font-size: 29px;
+    }
+
+    .mask-countdown {
+        font-size: 48px;
+    }
+
+    .mask-heading h1 {
+        font-size: 31px;
+    }
+
+    .mask-heading p {
+        font-size: 12px;
+    }
+
+    .mask-camera-header h2 {
+        font-size: 13px;
+    }
+
+    .mask-camera-header span {
+        font-size: 9px;
+    }
+
+    .mask-live-indicator {
+        padding: 6px 8px;
+        font-size: 8px;
+    }
+
+    .mask-face-frame {
+        width: 55%;
+    }
+
+    .mask-side-panel {
+        gap: 12px;
+    }
+
+    .mask-status-card,
+    .mask-info-card:not(.mask-status-card) {
+        padding: 18px;
+    }
+
+    .mask-status-card h3 {
+        font-size: 18px;
+    }
+
+    .mask-message-card {
+        padding: 13px;
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.mask-test-button:focus-visible,
+.mask-brand:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .mask-security-status span,
+    .mask-live-indicator > span,
+    .mask-shield-ring,
+    .mask-shield-ring::before,
+    .mask-scan-line,
+    .mask-loader {
+        animation: none;
+    }
+
+    .mask-countdown-progress div {
+        transition: none;
+    }
+}

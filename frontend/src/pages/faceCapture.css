@@ -1,0 +1,1820 @@
+/* =========================================================
+   SMARTATTEND - FACE CAPTURE PAGE
+   PREMIUM BLACK / WHITE / GREY AI SECURITY THEME
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.face-capture-page {
+    min-height: 100vh;
+    width: 100%;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(255, 255, 255, 0.055),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(130, 130, 130, 0.055),
+            transparent 30%
+        ),
+        #070707;
+
+    color: #ffffff;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x: hidden;
+
+    position: relative;
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+.face-capture-glow {
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    filter: blur(110px);
+
+    opacity: 0.13;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.face-glow-one {
+    top: -190px;
+    left: -140px;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    animation: faceGlowOne 10s ease-in-out infinite;
+}
+
+.face-glow-two {
+    right: -160px;
+    bottom: -180px;
+
+    background: rgba(150, 150, 150, 0.18);
+
+    animation: faceGlowTwo 12s ease-in-out infinite;
+}
+
+@keyframes faceGlowOne {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(45px, 30px);
+    }
+}
+
+@keyframes faceGlowTwo {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-40px, -35px);
+    }
+}
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.face-capture-topbar {
+    min-height: 82px;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 42px;
+
+    background: rgba(9, 9, 9, 0.88);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.face-capture-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.face-brand-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #a9a9a9
+        );
+
+    color: #080808;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 0 28px rgba(255, 255, 255, 0.09);
+}
+
+.face-capture-brand span {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.face-capture-brand small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #666666;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1.1px;
+}
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.face-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #cfcfcf;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.face-back-btn:hover {
+    background: #ffffff;
+
+    color: #080808;
+
+    border-color: #ffffff;
+
+    transform: translateX(-2px);
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.face-capture-main {
+    width: min(1450px, calc(100% - 70px));
+
+    margin: 0 auto;
+
+    padding: 38px 0 60px;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.face-page-heading {
+    text-align: center;
+
+    margin-bottom: 32px;
+}
+
+.face-heading-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    margin-bottom: 13px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: #9d9d9d;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.face-heading-badge > span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #7ee49c;
+
+    box-shadow:
+        0 0 9px rgba(126, 228, 156, 0.65);
+
+    animation: headingDotPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes headingDotPulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+.face-page-heading h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 31px;
+    font-weight: 750;
+
+    letter-spacing: -0.9px;
+}
+
+.face-page-heading > p {
+    max-width: 600px;
+
+    margin: 9px auto 15px;
+
+    color: #727272;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   USER ID PILL
+   ========================================================= */
+
+.face-user-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 7px 11px;
+
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.face-user-pill span {
+    color: #5e5e5e;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+}
+
+.face-user-pill strong {
+    color: #c7c7c7;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 10px;
+}
+
+/* =========================================================
+   WORKSPACE
+   ========================================================= */
+
+.face-workspace {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.55fr)
+        minmax(300px, 0.8fr);
+
+    gap: 22px;
+
+    align-items: start;
+}
+
+/* =========================================================
+   COMMON GLASS CARD
+   ========================================================= */
+
+.face-camera-card,
+.face-progress-card,
+.face-instructions-card,
+.face-upload-card,
+.captured-images-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.42);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* =========================================================
+   CAMERA CARD
+   ========================================================= */
+
+.face-camera-card {
+    min-width: 0;
+
+    padding: 22px;
+
+    border-radius: 18px;
+}
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.face-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 17px;
+}
+
+.face-card-header h2 {
+    margin: 0;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.face-card-header p {
+    margin: 5px 0 0;
+
+    color: #686868;
+
+    font-size: 11px;
+}
+
+/* =========================================================
+   CAMERA STATUS
+   ========================================================= */
+
+.camera-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 10px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: #737373;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.camera-status > span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #666666;
+}
+
+.camera-status.camera-active {
+    background: rgba(82, 220, 126, 0.07);
+
+    border-color: rgba(82, 220, 126, 0.14);
+
+    color: #83dfa0;
+}
+
+.camera-status.camera-active > span {
+    background: #65dc89;
+
+    box-shadow:
+        0 0 9px rgba(101, 220, 137, 0.7);
+
+    animation: cameraStatusPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes cameraStatusPulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+/* =========================================================
+   CAMERA CONTAINER
+   ========================================================= */
+
+.face-camera-container {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    min-height: 390px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.035),
+            transparent 45%
+        ),
+        #050505;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* Camera grid */
+
+.face-camera-container::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    z-index: 2;
+}
+
+/* =========================================================
+   CAMERA PLACEHOLDER
+   ========================================================= */
+
+.camera-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 4;
+}
+
+.camera-placeholder-icon {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 16px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    color: #777777;
+
+    font-size: 28px;
+}
+
+.camera-placeholder h3 {
+    margin: 0;
+
+    color: #cfcfcf;
+
+    font-size: 15px;
+}
+
+.camera-placeholder p {
+    max-width: 290px;
+
+    margin: 7px 0 0;
+
+    color: #5e5e5e;
+
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+/* =========================================================
+   VIDEO
+   ========================================================= */
+
+.face-video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+
+    position: relative;
+
+    z-index: 1;
+
+    transform: scaleX(-1);
+}
+
+.face-video.visible {
+    display: block;
+}
+
+/* =========================================================
+   FACE CORNERS
+   ========================================================= */
+
+.face-corner {
+    width: 42px;
+    height: 42px;
+
+    position: absolute;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.face-corner.top-left {
+    top: 18%;
+    left: 24%;
+
+    border-top: 2px solid rgba(255, 255, 255, 0.85);
+    border-left: 2px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: 8px 0 0 0;
+}
+
+.face-corner.top-right {
+    top: 18%;
+    right: 24%;
+
+    border-top: 2px solid rgba(255, 255, 255, 0.85);
+    border-right: 2px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: 0 8px 0 0;
+}
+
+.face-corner.bottom-left {
+    bottom: 18%;
+    left: 24%;
+
+    border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+    border-left: 2px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: 0 0 0 8px;
+}
+
+.face-corner.bottom-right {
+    bottom: 18%;
+    right: 24%;
+
+    border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+    border-right: 2px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: 0 0 8px 0;
+}
+
+/* =========================================================
+   FACE GUIDE
+   ========================================================= */
+
+.face-guide {
+    position: absolute;
+
+    width: 37%;
+    height: 68%;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.face-guide-circle {
+    width: 100%;
+    height: 100%;
+
+    border: 1px dashed rgba(255, 255, 255, 0.28);
+
+    border-radius: 48% 48% 45% 45%;
+
+    box-shadow:
+        0 0 35px rgba(255, 255, 255, 0.025);
+
+    animation: guidePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes guidePulse {
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 0.95;
+    }
+}
+
+/* =========================================================
+   LIVE LABEL
+   ========================================================= */
+
+.camera-live-label {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    z-index: 7;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 6px 9px;
+
+    border-radius: 6px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: #d9d9d9;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    backdrop-filter: blur(8px);
+}
+
+.camera-live-label > span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #6ce08c;
+
+    box-shadow:
+        0 0 9px rgba(108, 224, 140, 0.8);
+
+    animation: liveLabelPulse 1.4s infinite;
+}
+
+@keyframes liveLabelPulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* =========================================================
+   CAMERA CONTROLS
+   ========================================================= */
+
+.face-camera-controls {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 17px;
+}
+
+.face-primary-btn,
+.face-capture-btn,
+.face-stop-btn {
+    height: 46px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.face-primary-btn {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid #ffffff;
+
+    background: #ffffff;
+
+    color: #070707;
+}
+
+.face-primary-btn:hover {
+    background: #dedede;
+
+    border-color: #dedede;
+
+    transform: translateY(-1px);
+}
+
+.face-capture-btn {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid #ffffff;
+
+    background: #ffffff;
+
+    color: #080808;
+}
+
+.face-capture-btn:hover:not(:disabled) {
+    background: #dedede;
+
+    transform: translateY(-1px);
+}
+
+.face-capture-btn:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+.capture-circle {
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #111111;
+
+    border-radius: 50%;
+
+    font-size: 7px;
+}
+
+.face-stop-btn {
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #a6a6a6;
+}
+
+.face-stop-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+
+    color: #ffffff;
+
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
+   CAMERA HINT
+   ========================================================= */
+
+.camera-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 13px;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: #656565;
+
+    font-size: 10px;
+
+    line-height: 1.45;
+}
+
+.camera-hint > span {
+    color: #a7a7a7;
+
+    font-size: 13px;
+}
+
+/* =========================================================
+   SIDE PANEL
+   ========================================================= */
+
+.face-side-panel {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+
+    min-width: 0;
+}
+
+/* =========================================================
+   PROGRESS CARD
+   ========================================================= */
+
+.face-progress-card {
+    padding: 20px;
+
+    border-radius: 16px;
+}
+
+.face-progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.face-progress-header > div:first-child span {
+    display: block;
+
+    color: #666666;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.face-progress-header strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #ffffff;
+
+    font-size: 25px;
+    font-weight: 750;
+}
+
+.face-progress-header strong small {
+    color: #666666;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.progress-percentage {
+    color: #bdbdbd;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.face-progress-track {
+    width: 100%;
+    height: 7px;
+
+    margin-top: 17px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.face-progress-fill {
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #777777,
+            #ffffff
+        );
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.15);
+
+    transition: width 0.35s ease;
+}
+
+.face-progress-card > p {
+    margin: 10px 0 0;
+
+    color: #626262;
+
+    font-size: 10px;
+}
+
+/* =========================================================
+   INSTRUCTIONS
+   ========================================================= */
+
+.face-instructions-card {
+    padding: 20px;
+
+    border-radius: 16px;
+}
+
+.face-instructions-card h3 {
+    margin: 0 0 17px;
+
+    color: #eeeeee;
+
+    font-size: 14px;
+}
+
+/* =========================================================
+   INSTRUCTION ITEM
+   ========================================================= */
+
+.instruction-item {
+    display: flex;
+    gap: 11px;
+
+    padding: 12px 0;
+}
+
+.instruction-item + .instruction-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.instruction-icon {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: #a8a8a8;
+
+    font-size: 13px;
+}
+
+.instruction-item strong {
+    display: block;
+
+    color: #cfcfcf;
+
+    font-size: 11px;
+}
+
+.instruction-item p {
+    margin: 4px 0 0;
+
+    color: #626262;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+/* =========================================================
+   UPLOAD STATUS
+   ========================================================= */
+
+.face-upload-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px 17px;
+
+    border-radius: 14px;
+}
+
+.upload-status-icon {
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: #999999;
+
+    font-size: 17px;
+}
+
+.upload-status-text strong {
+    display: block;
+
+    color: #cfcfcf;
+
+    font-size: 11px;
+}
+
+.upload-status-text span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #626262;
+
+    font-size: 9px;
+}
+
+/* =========================================================
+   CAPTURED IMAGES CARD
+   ========================================================= */
+
+.captured-images-card {
+    margin-top: 22px;
+
+    padding: 22px;
+
+    border-radius: 18px;
+}
+
+.captured-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.captured-header h2 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.captured-header p {
+    margin: 5px 0 0;
+
+    color: #626262;
+
+    font-size: 10px;
+}
+
+.captured-count {
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: #aaa;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   IMAGE GRID
+   ========================================================= */
+
+.captured-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(90px, 1fr));
+
+    gap: 10px;
+}
+
+.captured-image-card {
+    aspect-ratio: 1 / 1;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #111111;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.captured-image-card img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transform: scaleX(-1);
+
+    transition: transform 0.3s ease;
+}
+
+.captured-image-card:hover img {
+    transform: scaleX(-1) scale(1.06);
+}
+
+.captured-image-number {
+    position: absolute;
+
+    top: 6px;
+    left: 6px;
+
+    padding: 4px 6px;
+
+    border-radius: 5px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    color: #dddddd;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    backdrop-filter: blur(5px);
+}
+
+.captured-check {
+    position: absolute;
+
+    right: 6px;
+    bottom: 6px;
+
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #080808;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.face-message {
+    width: 100%;
+
+    margin-top: 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 15px 17px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    animation: messageAppear 0.3s ease;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.face-error {
+    background: rgba(255, 74, 74, 0.055);
+
+    border-color: rgba(255, 74, 74, 0.15);
+}
+
+.face-success {
+    background: rgba(75, 218, 121, 0.055);
+
+    border-color: rgba(75, 218, 121, 0.15);
+}
+
+.face-message-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.face-error .face-message-icon {
+    color: #ff8585;
+}
+
+.face-success .face-message-icon {
+    color: #7ee19c;
+}
+
+.face-message strong {
+    display: block;
+
+    color: #d9d9d9;
+
+    font-size: 11px;
+}
+
+.face-message p {
+    margin: 4px 0 0;
+
+    color: #777777;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+/* =========================================================
+   BOTTOM ACTION
+   ========================================================= */
+
+.face-bottom-action {
+    margin-top: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 18px 20px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.02)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.face-bottom-action > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #686868;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+}
+
+.secure-dot {
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #6fdd8e;
+
+    box-shadow:
+        0 0 9px rgba(111, 221, 142, 0.7);
+}
+
+.face-save-btn {
+    min-width: 205px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 0 16px;
+
+    border: 1px solid #ffffff;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #080808;
+
+    font-family: inherit;
+
+    font-size: 11px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.face-save-btn:hover:not(:disabled) {
+    background: #dedede;
+
+    border-color: #dedede;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 25px rgba(255, 255, 255, 0.08);
+}
+
+.face-save-btn:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+}
+
+.face-save-btn > span:last-child {
+    color: #777777;
+
+    font-size: 9px;
+}
+
+/* =========================================================
+   BUTTON SPINNER
+   ========================================================= */
+
+.button-spinner {
+    width: 14px;
+    height: 14px;
+
+    border: 2px solid rgba(0, 0, 0, 0.2);
+
+    border-top-color: #080808;
+
+    border-radius: 50%;
+
+    animation: faceButtonSpin 0.7s linear infinite;
+}
+
+@keyframes faceButtonSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 1200px
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .face-workspace {
+        grid-template-columns:
+            minmax(0, 1.35fr)
+            minmax(280px, 0.8fr);
+    }
+
+    .face-camera-container {
+        min-height: 340px;
+    }
+
+    .captured-grid {
+        grid-template-columns:
+            repeat(5, minmax(80px, 1fr));
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 950px
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .face-capture-topbar {
+        padding: 15px 25px;
+    }
+
+    .face-capture-main {
+        width: calc(100% - 40px);
+    }
+
+    .face-workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .face-side-panel {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        align-items: start;
+    }
+
+    .face-upload-card {
+        grid-column: span 2;
+    }
+
+    .face-camera-container {
+        min-height: 420px;
+    }
+
+    .captured-grid {
+        grid-template-columns:
+            repeat(6, minmax(70px, 1fr));
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 700px
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .face-capture-topbar {
+        min-height: 70px;
+
+        padding: 13px 17px;
+    }
+
+    .face-brand-icon {
+        width: 37px;
+        height: 37px;
+
+        font-size: 18px;
+    }
+
+    .face-capture-brand span {
+        font-size: 14px;
+    }
+
+    .face-capture-brand small {
+        font-size: 7px;
+    }
+
+    .face-back-btn {
+        padding: 9px 12px;
+
+        font-size: 10px;
+    }
+
+    .face-capture-main {
+        width: calc(100% - 24px);
+
+        padding-top: 25px;
+    }
+
+    .face-page-heading {
+        margin-bottom: 24px;
+    }
+
+    .face-page-heading h1 {
+        font-size: 26px;
+    }
+
+    .face-page-heading > p {
+        font-size: 11px;
+    }
+
+    .face-side-panel {
+        display: flex;
+    }
+
+    .face-camera-container {
+        min-height: 340px;
+    }
+
+    .face-corner {
+        width: 32px;
+        height: 32px;
+    }
+
+    .face-guide {
+        width: 42%;
+        height: 67%;
+    }
+
+    .captured-grid {
+        grid-template-columns:
+            repeat(4, minmax(70px, 1fr));
+    }
+
+    .face-bottom-action {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .face-save-btn {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 500px
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .face-capture-brand small {
+        display: none;
+    }
+
+    .face-card-header {
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .face-card-header h2 {
+        font-size: 15px;
+    }
+
+    .face-card-header p {
+        font-size: 9px;
+    }
+
+    .camera-status {
+        font-size: 8px;
+
+        padding: 6px 8px;
+    }
+
+    .face-camera-card,
+    .face-progress-card,
+    .face-instructions-card {
+        padding: 16px;
+    }
+
+    .face-camera-container {
+        min-height: 270px;
+
+        aspect-ratio: 4 / 3;
+    }
+
+    .face-camera-controls {
+        flex-direction: column;
+    }
+
+    .face-capture-btn,
+    .face-stop-btn {
+        width: 100%;
+    }
+
+    .face-stop-btn {
+        height: 42px;
+    }
+
+    .face-guide {
+        width: 48%;
+        height: 65%;
+    }
+
+    .face-corner {
+        width: 27px;
+        height: 27px;
+    }
+
+    .face-corner.top-left {
+        left: 18%;
+    }
+
+    .face-corner.top-right {
+        right: 18%;
+    }
+
+    .face-corner.bottom-left {
+        left: 18%;
+    }
+
+    .face-corner.bottom-right {
+        right: 18%;
+    }
+
+    .captured-images-card {
+        padding: 16px;
+    }
+
+    .captured-header {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .captured-header h2 {
+        font-size: 14px;
+    }
+
+    .captured-grid {
+        grid-template-columns:
+            repeat(3, minmax(70px, 1fr));
+    }
+
+    .face-message {
+        align-items: flex-start;
+    }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .face-page-heading h1 {
+        font-size: 22px;
+    }
+
+    .face-page-heading > p {
+        font-size: 10px;
+    }
+
+    .face-capture-topbar {
+        padding: 12px;
+    }
+
+    .face-back-btn {
+        padding: 8px 10px;
+
+        font-size: 9px;
+    }
+
+    .face-capture-main {
+        width: calc(100% - 18px);
+    }
+
+    .face-camera-container {
+        min-height: 235px;
+    }
+
+    .captured-grid {
+        grid-template-columns:
+            repeat(2, minmax(80px, 1fr));
+    }
+
+    .face-save-btn {
+        font-size: 10px;
+    }
+}

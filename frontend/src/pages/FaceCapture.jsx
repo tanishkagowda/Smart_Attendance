@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../services/api";
-
+import "./faceCapture.css";
 function FaceCapture() {
     const { userId } = useParams();
     const navigate = useNavigate();

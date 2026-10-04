@@ -1,7 +1,7 @@
 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./maskAlert.css";
 function MaskAlert() {
     const navigate = useNavigate();
 

@@ -1,0 +1,942 @@
+
+/* =========================================================
+   SMARTATTEND
+   MASK ALERT PAGE
+   BLACK / WHITE / GREY AI SECURITY THEME
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.mask-alert-page {
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255, 190, 60, 0.045),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(255, 255, 255, 0.05),
+            transparent 28%
+        ),
+        #07090c;
+
+    color: #ffffff;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+.mask-alert-glow {
+    position: fixed;
+
+    width: 430px;
+    height: 430px;
+
+    border-radius: 50%;
+
+    filter: blur(110px);
+
+    opacity: 0.11;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.mask-alert-glow-one {
+    top: -220px;
+    left: -180px;
+
+    background: #ffffff;
+}
+
+.mask-alert-glow-two {
+    right: -200px;
+    bottom: -220px;
+
+    background: #f0a52b;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.mask-alert-navbar {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6vw;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    background: rgba(7, 9, 12, 0.78);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+
+/* Brand */
+
+.mask-alert-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.mask-alert-brand-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #c8c8c8
+    );
+
+    color: #07090c;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 28px rgba(255, 255, 255, 0.12);
+}
+
+.mask-alert-brand > div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.mask-alert-brand span {
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.mask-alert-brand small {
+    margin-top: 2px;
+
+    color: #737a84;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+}
+
+
+/* Security Status */
+
+.mask-alert-security-status {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: #a7adb5;
+
+    font-size: 10px;
+    font-weight: 650;
+}
+
+.mask-alert-security-status span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #f5b942;
+
+    box-shadow:
+        0 0 10px rgba(245, 185, 66, 0.8);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.mask-alert-main {
+    position: relative;
+    z-index: 2;
+
+    flex: 1;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 60px 25px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================================================
+   ALERT CARD
+   ========================================================= */
+
+.mask-alert-card {
+    width: 100%;
+    max-width: 610px;
+
+    position: relative;
+
+    padding: 45px 45px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.5),
+        inset 0 1px rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+
+/* =========================================================
+   WARNING ICON
+   ========================================================= */
+
+.mask-alert-icon-wrapper {
+    width: 95px;
+    height: 95px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+}
+
+.mask-alert-icon-ring {
+    position: absolute;
+
+    inset: 0;
+
+    border: 1px solid rgba(245, 185, 66, 0.22);
+
+    border-radius: 50%;
+
+    animation:
+        alertRingPulse 2.2s ease-in-out infinite;
+}
+
+.mask-alert-icon-ring::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border: 1px dashed rgba(245, 185, 66, 0.18);
+
+    border-radius: 50%;
+}
+
+@keyframes alertRingPulse {
+    0%,
+    100% {
+        transform: scale(0.95);
+
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: scale(1.08);
+
+        opacity: 1;
+    }
+}
+
+.mask-alert-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 2;
+
+    border: 1px solid rgba(245, 185, 66, 0.28);
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(245, 185, 66, 0.15),
+            rgba(245, 185, 66, 0.05)
+        );
+
+    color: #f5c15a;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 35px rgba(245, 185, 66, 0.08);
+}
+
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.mask-alert-badge {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 13px;
+
+    border: 1px solid rgba(245, 185, 66, 0.14);
+
+    border-radius: 30px;
+
+    background: rgba(245, 185, 66, 0.045);
+
+    color: #d6ad5a;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+}
+
+.mask-alert-badge span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #f5b942;
+
+    box-shadow:
+        0 0 9px rgba(245, 185, 66, 0.8);
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.mask-alert-card h1 {
+    margin: 20px 0 14px;
+
+    font-size: clamp(38px, 5vw, 57px);
+
+    line-height: 1.02;
+
+    letter-spacing: -2.5px;
+
+    font-weight: 800;
+}
+
+.mask-alert-card h1 span {
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #a0a6ae
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.mask-alert-description {
+    max-width: 480px;
+
+    margin: 0;
+
+    color: #858c95;
+
+    font-size: 13px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   DETECTION STATUS
+   ========================================================= */
+
+.mask-alert-status {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 28px;
+
+    padding: 15px;
+
+    border: 1px solid rgba(245, 185, 66, 0.13);
+
+    border-radius: 13px;
+
+    background:
+        rgba(245, 185, 66, 0.035);
+
+    text-align: left;
+}
+
+.mask-alert-status-icon {
+    min-width: 38px;
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(245, 185, 66, 0.11);
+
+    color: #f5bd4c;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.mask-alert-status-content {
+    flex: 1;
+}
+
+.mask-alert-status-content strong {
+    display: block;
+
+    color: #e4e6e9;
+
+    font-size: 11px;
+}
+
+.mask-alert-status-content span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #747b84;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+.mask-alert-status-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: rgba(245, 185, 66, 0.06);
+}
+
+.mask-alert-status-dot span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #f5b942;
+
+    box-shadow:
+        0 0 9px rgba(245, 185, 66, 0.8);
+
+    animation: warningDot 1.5s ease-in-out infinite;
+}
+
+@keyframes warningDot {
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+}
+
+
+/* =========================================================
+   TRY AGAIN BUTTON
+   ========================================================= */
+
+.mask-alert-button {
+    width: 100%;
+
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    margin-top: 20px;
+
+    border: 1px solid #ffffff;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #07090c;
+
+    font-size: 12px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.mask-alert-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 40px rgba(255, 255, 255, 0.12);
+}
+
+.mask-alert-button span {
+    font-size: 18px;
+}
+
+.mask-alert-button b {
+    margin-left: 7px;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   HOME BUTTON
+   ========================================================= */
+
+.mask-alert-home-button {
+    width: 100%;
+
+    min-height: 45px;
+
+    margin-top: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: #8d949d;
+
+    font-size: 11px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.mask-alert-home-button:hover {
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #ffffff;
+
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   SECURITY NOTE
+   ========================================================= */
+
+.mask-alert-security-note {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    text-align: left;
+}
+
+.mask-alert-check {
+    min-width: 31px;
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(74, 222, 128, 0.09);
+
+    color: #4ade80;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.mask-alert-security-note strong {
+    display: block;
+
+    color: #bfc4ca;
+
+    font-size: 9px;
+}
+
+.mask-alert-security-note span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #626a74;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BOTTOM INDICATORS
+   ========================================================= */
+
+.mask-alert-footer-status {
+    width: 100%;
+
+    max-width: 610px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    margin-top: 23px;
+
+    padding: 13px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.022);
+
+    color: #626a73;
+
+    font-size: 8px;
+    font-weight: 650;
+}
+
+.mask-alert-footer-status > div {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.mask-alert-footer-status span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+}
+
+.status-green {
+    background: #4ade80;
+
+    box-shadow:
+        0 0 8px rgba(74, 222, 128, 0.7);
+}
+
+.status-yellow {
+    background: #f5b942;
+
+    box-shadow:
+        0 0 8px rgba(245, 185, 66, 0.7);
+}
+
+.status-blue {
+    background: #60a5fa;
+
+    box-shadow:
+        0 0 8px rgba(96, 165, 250, 0.7);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.mask-alert-footer {
+    position: relative;
+    z-index: 2;
+
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: auto;
+
+    padding: 0 6vw;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: #555d66;
+
+    font-size: 9px;
+}
+
+.mask-alert-footer span:first-child {
+    color: #858d96;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .mask-alert-navbar {
+        height: 72px;
+
+        padding: 0 22px;
+    }
+
+    .mask-alert-main {
+        padding-top: 45px;
+    }
+
+    .mask-alert-card {
+        padding: 38px 30px 30px;
+    }
+
+    .mask-alert-footer-status {
+        gap: 18px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 550px) {
+
+    .mask-alert-navbar {
+        padding: 0 16px;
+    }
+
+    .mask-alert-brand-icon {
+        width: 37px;
+        height: 37px;
+
+        font-size: 17px;
+    }
+
+    .mask-alert-brand span {
+        font-size: 15px;
+    }
+
+    .mask-alert-brand small {
+        font-size: 6px;
+
+        letter-spacing: 1.2px;
+    }
+
+    .mask-alert-security-status {
+        padding: 7px 9px;
+
+        font-size: 8px;
+    }
+
+    .mask-alert-main {
+        padding:
+            35px 15px 25px;
+    }
+
+    .mask-alert-card {
+        padding: 32px 20px 25px;
+
+        border-radius: 18px;
+    }
+
+    .mask-alert-icon-wrapper {
+        width: 82px;
+        height: 82px;
+    }
+
+    .mask-alert-icon {
+        width: 51px;
+        height: 51px;
+
+        font-size: 23px;
+    }
+
+    .mask-alert-card h1 {
+        font-size: 38px;
+
+        letter-spacing: -1.8px;
+    }
+
+    .mask-alert-description {
+        font-size: 12px;
+    }
+
+    .mask-alert-status {
+        padding: 12px;
+    }
+
+    .mask-alert-footer-status {
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding: 14px;
+    }
+
+    .mask-alert-footer {
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 6px;
+
+        padding: 18px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .mask-alert-card h1 {
+        font-size: 33px;
+    }
+
+    .mask-alert-badge {
+        font-size: 7px;
+
+        letter-spacing: 0.9px;
+    }
+
+    .mask-alert-description {
+        font-size: 11px;
+    }
+}

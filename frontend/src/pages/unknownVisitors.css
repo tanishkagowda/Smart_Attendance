@@ -1,0 +1,1466 @@
+
+/* =========================================================
+   SMARTATTEND - UNKNOWN VISITORS
+   BLACK / WHITE / GREY SECURITY MONITORING THEME
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.visitors-page {
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+
+    display: flex;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 10%,
+            rgba(255, 255, 255, 0.045),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 20% 85%,
+            rgba(180, 180, 180, 0.035),
+            transparent 30%
+        ),
+        #050505;
+
+    color: #ffffff;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+.visitors-glow {
+    position: fixed;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(110px);
+
+    opacity: 0.13;
+
+    z-index: 0;
+}
+
+.visitors-glow-one {
+    width: 430px;
+    height: 430px;
+
+    top: -180px;
+    right: 5%;
+
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.visitors-glow-two {
+    width: 360px;
+    height: 360px;
+
+    left: 15%;
+    bottom: -180px;
+
+    background: rgba(160, 160, 160, 0.08);
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.visitors-sidebar {
+    width: 245px;
+    min-width: 245px;
+    min-height: 100vh;
+
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px 15px;
+
+    z-index: 10;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(12, 12, 12, 0.97),
+            rgba(5, 5, 5, 0.98)
+        );
+
+    box-shadow:
+        15px 0 50px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.visitors-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 3px 8px 25px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.visitors-brand-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    background: rgba(255, 255, 255, 0.055);
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    box-shadow:
+        0 0 24px rgba(255, 255, 255, 0.04),
+        inset 0 0 15px rgba(255, 255, 255, 0.025);
+}
+
+.visitors-brand > div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.visitors-brand strong {
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+.visitors-brand span {
+    color: #5d5d5d;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+/* =========================================================
+   SIDEBAR SECTION
+   ========================================================= */
+
+.visitors-sidebar-section {
+    padding: 23px 4px 0;
+}
+
+.visitors-sidebar-section > span {
+    display: block;
+
+    margin: 0 10px 9px;
+
+    color: #484848;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.visitors-sidebar-section button {
+    width: 100%;
+
+    height: 42px;
+
+    margin-bottom: 4px;
+
+    padding: 0 11px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    border: 1px solid transparent;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #777777;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.visitors-sidebar-section button > span {
+    width: 20px;
+
+    display: flex;
+    justify-content: center;
+
+    color: #5b5b5b;
+
+    font-size: 14px;
+
+    transition: color 0.2s ease;
+}
+
+.visitors-sidebar-section button:hover {
+    color: #d1d1d1;
+
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.visitors-sidebar-section button:hover > span {
+    color: #aaaaaa;
+}
+
+.visitors-sidebar-section button.active {
+    color: #ffffff;
+
+    border-color: rgba(255, 255, 255, 0.08);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.085),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        inset 3px 0 #ffffff,
+        0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.visitors-sidebar-section button.active > span {
+    color: #ffffff;
+}
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.visitors-sidebar-bottom {
+    margin-top: auto;
+
+    padding: 20px 4px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.visitors-system-status {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 9px 17px;
+}
+
+.visitors-system-status > span {
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.65);
+
+    animation: visitorPulse 1.8s ease-in-out infinite;
+}
+
+.visitors-system-status div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.visitors-system-status strong {
+    color: #aaaaaa;
+
+    font-size: 9px;
+
+    font-weight: 600;
+}
+
+.visitors-system-status small {
+    color: #505050;
+
+    font-size: 8px;
+}
+
+.visitors-home-btn {
+    width: 100%;
+
+    height: 38px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: #686868;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.visitors-home-btn:hover {
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.visitors-main {
+    min-width: 0;
+
+    flex: 1;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 0 42px 55px;
+}
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.visitors-topbar {
+    min-height: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.visitors-breadcrumb {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #505050;
+
+    font-size: 9px;
+
+    letter-spacing: 0.8px;
+}
+
+.visitors-topbar h1 {
+    margin: 0;
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.4px;
+}
+
+/* =========================================================
+   ADMIN PROFILE
+   ========================================================= */
+
+.visitors-admin-profile {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 7px 10px 7px 7px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.visitors-admin-avatar {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #050505;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.visitors-admin-profile > div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.visitors-admin-profile strong {
+    color: #bcbcbc;
+
+    font-size: 9px;
+
+    font-weight: 600;
+}
+
+.visitors-admin-profile span {
+    color: #555555;
+
+    font-size: 8px;
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.visitors-intro {
+    min-height: 170px;
+
+    padding: 35px 0 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.visitors-title-badge {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 11px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: #656565;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.visitors-title-badge span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 9px rgba(255, 255, 255, 0.55);
+}
+
+.visitors-intro h2 {
+    margin: 14px 0 7px;
+
+    font-size: clamp(29px, 3.5vw, 42px);
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+}
+
+.visitors-intro h2 span {
+    color: #777777;
+}
+
+.visitors-intro p {
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+/* =========================================================
+   COUNT CARD
+   ========================================================= */
+
+.visitors-count-card {
+    min-width: 190px;
+
+    padding: 17px 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.25),
+        inset 0 1px rgba(255, 255, 255, 0.025);
+}
+
+.visitors-count-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+.visitors-count-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.visitors-count-card span {
+    color: #5d5d5d;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.visitors-count-card strong {
+    color: #eeeeee;
+
+    font-size: 23px;
+
+    font-weight: 600;
+}
+
+/* =========================================================
+   STATE CARD
+   ========================================================= */
+
+.visitors-state-card {
+    min-height: 330px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.3);
+}
+
+.visitors-loader {
+    width: 43px;
+    height: 43px;
+
+    margin-bottom: 18px;
+
+    border: 2px solid rgba(255, 255, 255, 0.12);
+
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation: visitorSpin 0.85s linear infinite;
+}
+
+.visitors-empty-icon {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 0 30px rgba(255, 255, 255, 0.04);
+}
+
+.visitors-state-card h3 {
+    margin: 0 0 7px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+.visitors-state-card p {
+    max-width: 390px;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.visitors-error-card {
+    min-height: 110px;
+
+    padding: 20px 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.visitors-error-icon {
+    width: 39px;
+    height: 39px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+.visitors-error-card > div:nth-child(2) {
+    flex: 1;
+}
+
+.visitors-error-card strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #c1c1c1;
+
+    font-size: 12px;
+}
+
+.visitors-error-card p {
+    margin: 0;
+
+    color: #686868;
+
+    font-size: 10px;
+}
+
+.visitors-error-card button {
+    padding: 9px 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: #b4b4b4;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.visitors-error-card button:hover {
+    background: rgba(255, 255, 255, 0.1);
+
+    color: #ffffff;
+}
+
+/* =========================================================
+   RECORDS SECTION
+   ========================================================= */
+
+.visitor-records-section {
+    margin-top: 3px;
+
+    padding: 21px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.32),
+        inset 0 1px rgba(255, 255, 255, 0.025);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* =========================================================
+   RECORD HEADER
+   ========================================================= */
+
+.visitor-records-header {
+    min-height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 0 2px 17px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.visitor-records-header h3 {
+    margin: 0 0 4px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.visitor-records-header p {
+    margin: 0;
+
+    color: #5d5d5d;
+
+    font-size: 9px;
+}
+
+.visitor-records-live {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 7px;
+
+    color: #727272;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.visitor-records-live span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 9px rgba(255, 255, 255, 0.6);
+
+    animation: visitorPulse 1.5s infinite;
+}
+
+/* =========================================================
+   VISITOR GRID
+   ========================================================= */
+
+.visitor-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 17px;
+
+    padding-top: 20px;
+}
+
+/* =========================================================
+   VISITOR CARD
+   ========================================================= */
+
+.visitor-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.01)
+        );
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.visitor-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(255, 255, 255, 0.16);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(255, 255, 255, 0.025);
+}
+
+/* =========================================================
+   VISITOR IMAGE
+   ========================================================= */
+
+.visitor-image-wrapper {
+    width: 100%;
+
+    position: relative;
+
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
+    background: #0b0b0b;
+}
+
+.visitor-image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(100%)
+        contrast(1.04)
+        brightness(0.78);
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.visitor-card:hover .visitor-image {
+    transform: scale(1.04);
+
+    filter:
+        grayscale(100%)
+        contrast(1.08)
+        brightness(0.9);
+}
+
+.visitor-image-overlay {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    z-index: 2;
+
+    padding: 5px 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 6px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    backdrop-filter: blur(8px);
+
+    color: #d2d2d2;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.visitor-card-content {
+    padding: 16px;
+}
+
+.visitor-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.visitor-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #505050;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.visitor-card-top h3 {
+    margin: 0;
+
+    color: #d1d1d1;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+.visitor-warning-icon {
+    width: 29px;
+    height: 29px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+.visitor-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 17px;
+
+    padding: 13px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.055);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.visitor-details > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.visitor-details > div + div {
+    padding-left: 12px;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.visitor-details span {
+    color: #4f4f4f;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.1px;
+}
+
+.visitor-details strong {
+    color: #a5a5a5;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.visitor-status {
+    margin-top: 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #696969;
+
+    font-size: 8px;
+}
+
+.visitor-status span {
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.45);
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes visitorPulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes visitorSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 1200px
+   ========================================================= */
+
+@media (max-width: 1200px) {
+    .visitors-main {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .visitor-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .visitors-sidebar {
+        width: 210px;
+        min-width: 210px;
+    }
+
+    .visitors-main {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .visitors-intro {
+        align-items: flex-start;
+    }
+
+    .visitors-count-card {
+        min-width: 165px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 750px
+   ========================================================= */
+
+@media (max-width: 750px) {
+    .visitors-page {
+        display: block;
+    }
+
+    .visitors-sidebar {
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+
+        position: relative;
+
+        padding: 14px 16px;
+
+        border-right: 0;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .visitors-brand {
+        padding: 2px 4px 14px;
+    }
+
+    .visitors-sidebar-section {
+        padding-top: 14px;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 4px;
+    }
+
+    .visitors-sidebar-section > span {
+        grid-column: 1 / -1;
+
+        margin-bottom: 2px;
+    }
+
+    .visitors-sidebar-section button {
+        margin: 0;
+    }
+
+    .visitors-sidebar-bottom {
+        margin-top: 14px;
+
+        padding-top: 13px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+
+    .visitors-system-status {
+        flex: 1;
+
+        padding: 0;
+    }
+
+    .visitors-home-btn {
+        width: auto;
+
+        padding: 0 14px;
+    }
+
+    .visitors-main {
+        padding: 0 16px 40px;
+    }
+
+    .visitors-topbar {
+        min-height: 80px;
+    }
+
+    .visitors-intro {
+        flex-direction: column;
+
+        padding-top: 28px;
+    }
+
+    .visitors-count-card {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 560px
+   ========================================================= */
+
+@media (max-width: 560px) {
+    .visitor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .visitors-topbar {
+        align-items: flex-start;
+
+        padding: 18px 0;
+    }
+
+    .visitors-admin-profile {
+        padding: 5px;
+    }
+
+    .visitors-admin-profile > div:last-child {
+        display: none;
+    }
+
+    .visitors-topbar h1 {
+        font-size: 18px;
+    }
+
+    .visitors-intro h2 {
+        font-size: 30px;
+    }
+
+    .visitor-records-section {
+        padding: 14px;
+    }
+
+    .visitor-records-header {
+        align-items: flex-start;
+    }
+
+    .visitor-records-live {
+        white-space: nowrap;
+    }
+
+    .visitors-error-card {
+        flex-wrap: wrap;
+    }
+
+    .visitors-error-card > div:nth-child(2) {
+        min-width: 0;
+    }
+
+    .visitors-error-card button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 420px
+   ========================================================= */
+
+@media (max-width: 420px) {
+    .visitors-sidebar-section {
+        grid-template-columns: 1fr;
+    }
+
+    .visitors-sidebar-section > span {
+        margin-top: 3px;
+    }
+
+    .visitors-sidebar-bottom {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .visitors-home-btn {
+        width: 100%;
+    }
+
+    .visitors-main {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .visitors-topbar {
+        gap: 10px;
+    }
+
+    .visitors-breadcrumb {
+        font-size: 8px;
+    }
+
+    .visitors-intro h2 {
+        font-size: 27px;
+    }
+
+    .visitors-intro p {
+        font-size: 11px;
+    }
+
+    .visitor-card-content {
+        padding: 14px;
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.visitors-sidebar-section button:focus-visible,
+.visitors-home-btn:focus-visible,
+.visitors-error-card button:focus-visible {
+    outline: 2px solid #ffffff;
+
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .visitors-system-status > span,
+    .visitor-records-live span,
+    .visitors-loader {
+        animation: none;
+    }
+
+    .visitor-card,
+    .visitor-image {
+        transition: none;
+    }
+}

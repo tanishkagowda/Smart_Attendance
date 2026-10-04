@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import api from "../services/api";
-
+import "./maskVerification.css";
 function MaskVerification() {
     const location = useLocation();
     const navigate = useNavigate();

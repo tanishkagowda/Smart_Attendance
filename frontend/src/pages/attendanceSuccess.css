@@ -1,0 +1,666 @@
+/* =========================================================
+   SMARTATTEND - ATTENDANCE SUCCESS PAGE
+   PREMIUM BLACK / WHITE / GREY AI SECURITY THEME
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.success-page {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255, 255, 255, 0.055),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(255, 255, 255, 0.035),
+            transparent 28%
+        ),
+        #060606;
+
+    color: #ffffff;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+.success-glow {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(90px);
+
+    opacity: 0.16;
+}
+
+.success-glow-one {
+    top: -180px;
+    left: -120px;
+
+    background: rgba(255, 255, 255, 0.22);
+
+    animation: successGlowOne 8s ease-in-out infinite;
+}
+
+.success-glow-two {
+    right: -150px;
+    bottom: -180px;
+
+    background: rgba(150, 150, 150, 0.18);
+
+    animation: successGlowTwo 10s ease-in-out infinite;
+}
+
+@keyframes successGlowOne {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(45px, 30px);
+    }
+}
+
+@keyframes successGlowTwo {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-35px, -30px);
+    }
+}
+
+/* =========================================================
+   SUBTLE BACKGROUND GRID
+   ========================================================= */
+
+.success-page::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.success-container {
+    width: min(540px, calc(100% - 40px));
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 45px 0;
+}
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.success-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    margin-bottom: 24px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.success-brand-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #bdbdbd
+        );
+
+    color: #080808;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================================
+   SUCCESS CARD
+   ========================================================= */
+
+.success-card {
+    width: 100%;
+
+    padding: 42px 44px 34px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 35px 100px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    animation: successCardAppear 0.65s ease-out;
+}
+
+@keyframes successCardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================================================
+   SUCCESS ICON
+   ========================================================= */
+
+.success-icon-wrapper {
+    width: 108px;
+    height: 108px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    margin-bottom: 24px;
+}
+
+.success-icon-ring {
+    width: 92px;
+    height: 92px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 0 35px rgba(255, 255, 255, 0.08),
+        inset 0 0 25px rgba(255, 255, 255, 0.035);
+
+    animation: successRingPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes successRingPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 25px rgba(255, 255, 255, 0.06),
+            inset 0 0 20px rgba(255, 255, 255, 0.03);
+    }
+
+    50% {
+        box-shadow:
+            0 0 45px rgba(255, 255, 255, 0.14),
+            inset 0 0 30px rgba(255, 255, 255, 0.05);
+    }
+}
+
+.success-check {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #080808;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.18);
+
+    animation: checkAppear 0.5s ease-out 0.35s both;
+}
+
+@keyframes checkAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-15deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* =========================================================
+   SUCCESS BADGE
+   ========================================================= */
+
+.success-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    margin-bottom: 16px;
+
+    border-radius: 30px;
+
+    background: rgba(104, 222, 139, 0.07);
+
+    border: 1px solid rgba(104, 222, 139, 0.15);
+
+    color: #83dfa0;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.success-badge > span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #6dde8d;
+
+    box-shadow:
+        0 0 9px rgba(109, 222, 141, 0.7);
+
+    animation: successDotPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes successDotPulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.success-card h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 30px;
+    font-weight: 750;
+
+    letter-spacing: -0.8px;
+}
+
+.success-message {
+    max-width: 390px;
+
+    margin: 10px 0 27px;
+
+    color: #858585;
+
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   INFORMATION BOX
+   ========================================================= */
+
+.success-info {
+    width: 100%;
+
+    padding: 5px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.success-info-line {
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    text-align: left;
+
+    color: #bdbdbd;
+
+    font-size: 12px;
+}
+
+.success-info-line + .success-info-line {
+    border-top: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.success-info-icon {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    color: #a9a9a9;
+
+    font-size: 13px;
+}
+
+.success-info-line > span:nth-child(2) {
+    flex: 1;
+}
+
+.success-info-line strong {
+    width: 23px;
+    height: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(91, 221, 127, 0.1);
+
+    color: #7fe19d;
+
+    font-size: 11px;
+}
+
+/* =========================================================
+   FOOTER STATUS
+   ========================================================= */
+
+.success-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 22px;
+
+    color: #6f6f6f;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 0.1px;
+}
+
+.success-status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #6dde8d;
+
+    box-shadow:
+        0 0 9px rgba(109, 222, 141, 0.65);
+}
+
+/* =========================================================
+   BOTTOM TEXT
+   ========================================================= */
+
+.success-bottom-text {
+    margin: 22px 0 0;
+
+    color: #4f4f4f;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .success-container {
+        width: min(500px, calc(100% - 30px));
+    }
+
+    .success-card {
+        padding: 36px 30px 30px;
+    }
+
+    .success-card h1 {
+        font-size: 27px;
+    }
+
+    .success-icon-wrapper {
+        margin-bottom: 20px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .success-container {
+        width: calc(100% - 24px);
+
+        padding: 25px 0;
+    }
+
+    .success-brand {
+        margin-bottom: 18px;
+
+        font-size: 15px;
+    }
+
+    .success-brand-icon {
+        width: 34px;
+        height: 34px;
+
+        font-size: 17px;
+    }
+
+    .success-card {
+        padding: 31px 20px 26px;
+
+        border-radius: 18px;
+    }
+
+    .success-icon-wrapper {
+        width: 90px;
+        height: 90px;
+
+        margin-bottom: 18px;
+    }
+
+    .success-icon-ring {
+        width: 78px;
+        height: 78px;
+    }
+
+    .success-check {
+        width: 50px;
+        height: 50px;
+
+        font-size: 25px;
+    }
+
+    .success-badge {
+        font-size: 9px;
+    }
+
+    .success-card h1 {
+        font-size: 23px;
+
+        letter-spacing: -0.5px;
+    }
+
+    .success-message {
+        font-size: 12px;
+
+        margin-bottom: 21px;
+    }
+
+    .success-info-line {
+        min-height: 48px;
+
+        font-size: 11px;
+    }
+
+    .success-footer {
+        font-size: 9px;
+
+        text-align: center;
+    }
+
+    .success-bottom-text {
+        font-size: 9px;
+    }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .success-card {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .success-card h1 {
+        font-size: 21px;
+    }
+
+    .success-info-line {
+        gap: 8px;
+    }
+
+    .success-info-icon {
+        width: 27px;
+        height: 27px;
+    }
+}

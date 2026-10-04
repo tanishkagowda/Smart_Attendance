@@ -1,3 +1,4 @@
+import "./attendanceSuccess.css";
 function AttendanceSuccess() {
     return (
         <div className="success-page">
